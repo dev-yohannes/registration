@@ -42,6 +42,8 @@
 
 include "../connection.php";
 
+$conn->select_db('registration');
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $userUsername = $_POST['username'];
     $userFirstname = $_POST['firstname'];
@@ -52,6 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($userPassword !== $userConfirmPassword) {
         die("Password doesn't match. Check again.");
+    }
+
+    $insertData = "INSERT INTO registrationTable (tUsername, tFirstName, tLastName, tEmail, tPassword) VALUES ('$userUsername', '$userFirstname', '$userLastname', '$userEmail', '$userPassword')";
+
+    if ($conn->query($insertData)) {
+        echo "Data inserted successfully";
+    } else {
+        echo "Error inserting data: " . $conn->error;
     }
 }
 
