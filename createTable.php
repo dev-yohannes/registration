@@ -12,8 +12,8 @@ $conn->select_db('registration');
 //     echo "Error dropping table: " . $conn->error;
 // }
 
-$createTable = "CREATE TABLE IF NOT EXISTS registrationTable(
-    tID INT(10) NOT NULL,
+$createTable = "CREATE TABLE IF NOT EXISTS (
+    tID INT(10) AUTO_INCREMENT PRIMARY KEY,
     tUsername VARCHAR(30) NOT NULL,
     tFirstName VARCHAR(30) NOT NULL,
     tLastName VARCHAR(30) NOT NULL,
