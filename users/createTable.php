@@ -1,8 +1,10 @@
 <?php
 
-include "connection.php";
+include "../connection.php";
 
 $conn->select_db('registration');
+
+// drop statement
 
 // $dropTable = "DROP TABLE IF EXISTS registrationTable";
 
@@ -12,7 +14,7 @@ $conn->select_db('registration');
 //     echo "Error dropping table: " . $conn->error . "<br>";
 // }
 
-$createTable = "CREATE TABLE IF NOT EXISTS registrationTable (
+$createTable = "CREATE TABLE IF NOT EXISTS users (
     tID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     tUsername VARCHAR(30) NOT NULL,
     tFirstName VARCHAR(30) NOT NULL,
@@ -27,3 +29,5 @@ if ($conn->query($createTable) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error;
 }
+
+#registrationTable
