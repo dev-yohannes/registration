@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
+    <title>Admin Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -35,26 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $loginUsername = $_POST['username'];
     $loginPassword = $_POST['password'];
 
-    $sql = "SELECT * FROM registrationTable WHERE tUsername = '$loginUsername'";
+    $sql = "SELECT * FROM admins WHERE aUsername = '$loginUsername'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        if ($row['tStatus'] == 0) {
-            echo "Your account has not been activated. Contact the admins.";
-        } else {
-            if ($loginPassword === $row['tPassword']) {
-                $_SESSION['sess_ID'] = $row['tID'];
-                $_SESSION['sess_username'] = $row['tUsername'];
-                $_SESSION['sess_firstname'] = $row['tFirstName'];
-                $_SESSION['sess_lastname'] = $row['tLastName'];
+        if ($loginPassword === $row['aPassword']) {
+            $_SESSION['sess_ID'] = $row['aID'];
+            $_SESSION['sess_username'] = $row['aUsername'];
+            $_SESSION['sess_firstname'] = $row['aFirstName'];
+            $_SESSION['sess_lastname'] = $row['aLastName'];
 
-                header("Location: landingPage/index.html");
-                exit;
-            } else {
-                echo "Invalid username or password";
-            }
+            header("Location: landingPage/index.html");
+            exit;
+        } else {
+            echo "Invalid username or password";
         }
     } else {
         echo "The user doesn't exist on the database";
