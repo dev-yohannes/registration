@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $loginUsername = $_POST['username'];
     $loginPassword = $_POST['password'];
 
-    $sql = "SELECT * FROM registrationTable WHERE tUsername = '$loginUsername'";
+    $sql = "SELECT * FROM users WHERE tUsername = '$loginUsername'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
