@@ -50,13 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_SESSION['sess_firstname'] = $row['tFirstName'];
                 $_SESSION['sess_lastname'] = $row['tLastName'];
 
-                header("Location: ../landingPage/templated-projection/index.html");
+                header("Location: landingPage/index.html");
                 exit;
             } else {
-                $loginError = "Invalid username or password";
+                echo "Invalid username or password";
             }
         }
     } else {
-        $loginError = "The user doesn't exist on the database";
+        echo "The user doesn't exist on the database";
     }
 }
