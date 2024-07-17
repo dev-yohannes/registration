@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         die("Password doesn't match. Check again.");
     }
 
-    $insertData = "INSERT INTO registrationTable (tUsername, tFirstName, tLastName, tEmail, tPassword) VALUES ('$userUsername', '$userFirstname', '$userLastname', '$userEmail', '$userPassword')";
+    $insertData = "INSERT INTO users (tUsername, tFirstName, tLastName, tEmail, tPassword) VALUES ('$userUsername', '$userFirstname', '$userLastname', '$userEmail', '$userPassword')";
 
     if ($conn->query($insertData)) {
         echo "Data inserted successfully";
