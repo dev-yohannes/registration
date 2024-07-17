@@ -45,18 +45,18 @@ include "../connection.php";
 $conn->select_db('registration');
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $userUsername = $_POST['username'];
-    $userFirstname = $_POST['firstname'];
-    $userLastname = $_POST['lastname'];
-    $userEmail = $_POST['email'];
-    $userPassword = $_POST['password'];
-    $userConfirmPassword = $_POST['confirmPassword'];
+    $adminUsername = $_POST['username'];
+    $adminFirstname = $_POST['firstname'];
+    $adminLastname = $_POST['lastname'];
+    $adminEmail = $_POST['email'];
+    $adminPassword = $_POST['password'];
+    $adminConfirmPassword = $_POST['confirmPassword'];
 
-    if ($userPassword !== $userConfirmPassword) {
+    if ($adminPassword !== $adminConfirmPassword) {
         die("Password doesn't match. Check again.");
     }
 
-    $insertData = "INSERT INTO registrationTable (tUsername, tFirstName, tLastName, tEmail, tPassword) VALUES ('$userUsername', '$userFirstname', '$userLastname', '$userEmail', '$userPassword')";
+    $insertData = "INSERT INTO admins (aUsername, aFirstName, aLastName, aEmail, aPassword) VALUES ('$adminUsername', '$adminFirstname', '$adminLastname', '$adminEmail', '$adminPassword')";
 
     if ($conn->query($insertData)) {
         echo "Data inserted successfully";
