@@ -1,6 +1,6 @@
 <?php
 
-include "connection.php";
+include "../connection.php";
 
 $conn->select_db('registration');
 
@@ -12,14 +12,14 @@ $conn->select_db('registration');
 //     echo "Error dropping table: " . $conn->error . "<br>";
 // }
 
-$createTable = "CREATE TABLE IF NOT EXISTS registrationTable (
-    tID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    tUsername VARCHAR(30) NOT NULL,
-    tFirstName VARCHAR(30) NOT NULL,
-    tLastName VARCHAR(30) NOT NULL,
-    tEmail VARCHAR(50) NOT NULL,
-    tPassword VARCHAR(255) NOT NULL,
-    tStatus INT(10) DEFAULT 0
+$createTable = "CREATE TABLE IF NOT EXISTS admins (
+    aID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    aUsername VARCHAR(30) NOT NULL,
+    aFirstName VARCHAR(30) NOT NULL,
+    aLastName VARCHAR(30) NOT NULL,
+    aEmail VARCHAR(50) NOT NULL,
+    aPassword VARCHAR(255) NOT NULL,
+    aStatus INT(10) DEFAULT 1
 )";
 
 if ($conn->query($createTable) === TRUE) {
