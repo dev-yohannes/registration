@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['sess_firstname'] = $row['aFirstName'];
             $_SESSION['sess_lastname'] = $row['aLastName'];
 
-            header("Location: landingPage/index.html");
+            header("Location: landingPage/index.php");
             exit;
         } else {
             echo "Invalid username or password";
