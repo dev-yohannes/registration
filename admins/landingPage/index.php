@@ -14,7 +14,6 @@
     <div class="inner">
       <a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
       <nav id="nav">
-        <a href="index.html">View Profile</a>
         <a href="../adminProfile.php">Admin Profile</a>
         <a href="../usersProfile.php">Users Profile</a>
         <a href="../logout.php">Logout</a>
